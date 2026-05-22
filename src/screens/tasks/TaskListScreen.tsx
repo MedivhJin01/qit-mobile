@@ -120,16 +120,23 @@ export default function TaskListScreen() {
       >
         {/* ── Header ── */}
         <GlassCard style={styles.header}>
+          {/* Top row: title + add button */}
           <View style={styles.headerRow}>
-            <View>
-              <Text style={styles.headerTitle}>Tasks</Text>
-              <Text style={styles.headerSub}>{remaining} remaining</Text>
-            </View>
+            <Text style={styles.headerTitle}>Tasks</Text>
+            <Pressable style={styles.addBtn}>
+              <Text style={styles.addBtnText}>Add Task</Text>
+            </Pressable>
+          </View>
 
-            {/* Filter button — just the icon, no circle */}
+          {/* Bottom row: remaining count + filter icon */}
+          <View style={styles.headerFooter}>
+            <Text style={styles.headerSub}>{remaining} remaining</Text>
             <View ref={filterBtnRef}>
               <Pressable onPress={handleFilterPress} style={styles.filterBtn}>
-                <Ionicons name="reorder-three-outline" size={26} color="rgba(60,60,67,0.35)" />
+                <Ionicons name="reorder-three-outline" size={22} color="rgba(60,60,67,0.35)" />
+                {activeFilter !== null && (
+                  <View style={styles.filterDot} />
+                )}
               </Pressable>
             </View>
           </View>
@@ -228,7 +235,7 @@ export default function TaskListScreen() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#F2F2F7',
+    backgroundColor: '#000000',
   },
   content: {
     paddingHorizontal: 16,
@@ -254,8 +261,31 @@ const styles = StyleSheet.create({
     marginTop: 2,
     opacity: 0.6,
   },
+  addBtn: {
+    marginTop: 6,
+  },
+  addBtnText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: 'rgba(0,122,255,0.55)',
+  },
+  headerFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 4,
+  },
   filterBtn: {
     padding: 4,
+  },
+  filterDot: {
+    position: 'absolute',
+    top: 2,
+    right: 2,
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    backgroundColor: '#007AFF',
   },
 
   // Dropdown

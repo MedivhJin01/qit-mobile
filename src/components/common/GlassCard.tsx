@@ -37,7 +37,7 @@ export function GlassCard({ children, style, glassStyle = 'regular', ...props }:
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 20,
+    borderRadius: 30,
     overflow: 'hidden',
     padding: 16,
   },

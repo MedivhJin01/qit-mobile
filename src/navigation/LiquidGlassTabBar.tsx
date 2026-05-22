@@ -15,13 +15,13 @@ const TAB_CONFIG: Record<string, { icon: IoniconName; iconFocused: IoniconName; 
 
 const ACTIVE_COLOR   = '#007AFF';
 const INACTIVE_COLOR = '#8E8E93';
-const BAR_HEIGHT     = 62;
-const PILL_HEIGHT    = 50;
-const PILL_RADIUS    = 25;
-const PILL_H_MARGIN  = 8;  // gap between pill edge and tab edge
+const BAR_HEIGHT     = 60;
+const PILL_HEIGHT    = 53;
+const PILL_RADIUS    = 30;
+const PILL_H_MARGIN  = 5;  // gap between pill edge and tab edge
 const BAR_H_MARGIN   = 20; // space between bar and screen left/right edges
-const BAR_B_MARGIN   = 0; // space between bar and the home indicator
-const BAR_RADIUS     = 20; // how round the bar's corners are
+const BAR_B_MARGIN   = -13; // space between bar and the home indicator
+const BAR_RADIUS     = 30; // how round the bar's corners are
 
 export function LiquidGlassTabBar({ state, navigation, insets }: BottomTabBarProps) {
   const screenWidth = Dimensions.get('window').width;
