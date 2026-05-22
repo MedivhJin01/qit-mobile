@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://your-api-url.com';
+export const BASE_URL = 'https://api.queueit.today';
