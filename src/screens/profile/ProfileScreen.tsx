@@ -1,4 +1,4 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { useNavigation } from '@react-navigation/native';
@@ -8,6 +8,7 @@ import { GlassCard } from '../../components/common/GlassCard';
 import { VibrantBackground } from '../../components/common/VibrantBackground';
 import type { RootStackParamList } from '../../navigation/AppNavigator';
 import { useAuthUser } from '../../hooks/useAuthStore';
+import { authStore } from '../../store/authStore';
 
 type IoniconName = React.ComponentProps<typeof Ionicons>['name'];
 
@@ -58,8 +59,14 @@ export default function ProfileScreen() {
 
   const avatarLetter = (user?.username?.[0] ?? user?.email?.[0] ?? '?').toUpperCase();
 
-  const handlePress = (_item: MenuItem) => {
+  const handlePress = (item: MenuItem) => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    if (item.label === 'Sign Out') {
+      Alert.alert('Sign Out', 'Are you sure you want to sign out?', [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Sign Out', style: 'destructive', onPress: () => authStore.logout() },
+      ]);
+    }
   };
 
   return (

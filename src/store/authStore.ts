@@ -19,6 +19,11 @@ export const authStore = {
     currentUser = user;
     notify();
   },
+  logout: () => {
+    accessToken = null;
+    currentUser = null;
+    notify();
+  },
   subscribe: (fn: () => void) => {
     listeners.push(fn);
     return () => {

@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://api.queueit.today';
+export const BASE_URL = 'http://192.168.2.58:8080';
