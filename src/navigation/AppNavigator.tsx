@@ -12,10 +12,13 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
+// 🚧 DEV ONLY — set to true to skip login and go straight to the home screen
+const DEV_BYPASS_AUTH = true;
+
 function RootNavigator() {
   const user = useAuthUser();
 
-  if (!user) {
+  if (!DEV_BYPASS_AUTH && !user) {
     return <AuthNavigator />;
   }
 

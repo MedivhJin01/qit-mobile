@@ -169,7 +169,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#000000',
+    backgroundColor: '#F2F2F7',
   },
   content: {
     paddingHorizontal: 16,
